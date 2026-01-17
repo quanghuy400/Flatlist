@@ -9,7 +9,10 @@
     "web": "expo start --web"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@expo/vector-icons": "^15.0.3",
+=======
+>>>>>>> e21db3768846007c9559c4dff1efea5f2e88e3c7
     "expo": "~54.0.31",
     "expo-status-bar": "~3.0.9",
     "react": "19.1.0",

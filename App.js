@@ -5,28 +5,24 @@ import { Ionicons } from '@expo/vector-icons';
 const notifications = [
   {
     id: '1',
-    type: 'task',
     title: 'Bước 1 Xác định nhu cầu khách hàng',
     desc: 'Vũ Văn Hoàng sắp đến hạn lúc 01/08/2020 9:00',
     time: '20/08/2020, 06:00',
   },
   {
     id: '2',
-    type: 'client',
     title: 'Bạn có khách hàng mới!',
     desc: 'Chúc mừng bạn, bạn có khách hàng mới. Hãy mau chóng liên lạc ngay.',
     time: '20/08/2020, 06:00',
   },
   {
     id: '3',
-    type: 'client',
     title: 'Khách hàng được chia sẻ bị trùng',
     desc: 'Rất tiếc, khách hàng được chia sẻ đã tồn tại.',
     time: '20/08/2020, 06:00',
   },
   {
     id: '4',
-    type: 'task',
     title: 'Khách hàng được thêm bị trùng',
     desc: 'Rất tiếc, khách hàng được thêm hiện tại đã tồn tại trên hệ thống. Vui lòng chia sẻ khách hàng',
     time: '20/08/2020, 06:00',
@@ -46,21 +42,14 @@ const notifications = [
 ];
 
 const NotificationItem = ({ item }) => {
-  // item có nền xanh nhạt: 1, 2, 4
   const highlightItems = ['1', '2', '4'];
-  const isHighlight = highlightItems.includes(item.id);
-
-  // item là client: 2, 3, 4
   const clientItems = ['2', '3', '4'];
+
+  const isHighlight = highlightItems.includes(item.id);
   const isClient = clientItems.includes(item.id);
 
   return (
-    <View
-      style={[
-        styles.item,
-        isHighlight && styles.highlightBackground,
-      ]}
-    >
+    <View style={[styles.item, isHighlight && styles.highlightBackground]}>
       <View style={styles.iconBox}>
         <Ionicons
           name={isClient ? 'people' : 'checkmark-circle'}
@@ -78,7 +67,6 @@ const NotificationItem = ({ item }) => {
   );
 };
 
-
 export default function App() {
   return (
     <View style={styles.container}>
@@ -94,9 +82,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  highlightBackground: {
-  backgroundColor: '#E7F0FF',
-},
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -113,6 +98,9 @@ const styles = StyleSheet.create({
     padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
+  },
+  highlightBackground: {
+    backgroundColor: '#E7F0FF',
   },
   iconBox: {
     marginRight: 12,
